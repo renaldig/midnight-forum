@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-midnightforum-dev-90520-authRole",
+      "UnauthRoleArn": "arn:aws:iam::102189329059:role/amplify-midnightforum-dev-90520-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::102189329059:role/amplify-midnightforum-dev-90520-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-midnightforum-dev-90520-deployment",
+      "UnauthRoleName": "amplify-midnightforum-dev-90520-unauthRole",
+      "StackName": "amplify-midnightforum-dev-90520",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:102189329059:stack/amplify-midnightforum-dev-90520/09a08c00-3fae-11ee-9a9c-0209459b54b6",
+      "AmplifyAppId": "d1yujirio6bzj2"
+    },
+    "categories": {
+      "auth": {
+        "midnightforum9b94e195": {}
+      }
+    }
+  }
+}

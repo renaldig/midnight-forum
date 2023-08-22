@@ -1,13 +1,127 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input, textarea {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+button {
+  margin-top: 5px;
+  background-color: #007aff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #005fdd;
+}
+
+.thread, .post {
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 15px 0;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.author {
+    color: #007aff;
+    font-weight: bold;
+}
+
+.timestamp {
+    color: #888;
+    font-size: 12px;
+}
+
+.postHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.threadTitle {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-left {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.nav-right button {
+  margin-left: 10px;
+}
+
+.nav-right button:first-child {
+  margin-left: 0;
+}
+
+.mysterious-text {
+  color: #5c5c8a;  /* A deep bluish-purple shade */
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  text-decoration: none;  /* Removes underline from the link */
+  transition: color 0.3s ease;  /* Smooth transition for hover effect */
+}
+
+.mysterious-text:hover {
+  color: #3c3c5a;  /* A slightly darker shade for hover */
+}
+
+body.dark {
+  background-color: #333;
+  color: blue;
+}
+
+.navbar.dark {
+  background-color: #444;
+}
+
+.thread.dark, .post.dark {
+    background-color: #555;
+}
+
+.author.dark {
+    color: #add8e6;  /* A light blue color for better visibility in dark mode */
+}
+
+.timestamp.dark {
+    color: #aaa;
+}
+
+.mysterious-text.dark {
+  color: #9d9dbb;
+}
+
+.mysterious-text.dark:hover {
+  color: #7d7d9b;
 }
