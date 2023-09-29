@@ -1,65 +1,98 @@
 body {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Avenir', 'Helvetica Neue', sans-serif;
   background-color: #f2f2f2;
   color: #333;
+  margin: 20px; /* Added margin to body */
+  padding: 0;
+  transition: background-color 0.3s;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px; /* Increased padding for more space */
 }
 
 input, textarea {
-    padding: 10px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 16px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 0.5px solid #e1e4e8; /* Finer border */
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #0366d6;
 }
 
 button {
   margin-top: 5px;
-  background-color: #007aff;
+  background-color: #0366d6;
   color: white;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
-  padding: 8px 12px;
+  border-radius: 8px;
+  padding: 10px 20px;
   font-size: 14px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
 }
 
 button:hover {
-  background-color: #005fdd;
+  background-color: #0050a1;
+  transform: translateY(-2px);
 }
 
 .thread, .post {
-    background-color: #fff;
-    border-radius: 5px;
-    margin: 15px 0;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 20px 0;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.thread:hover, .post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+form {
+  display: flex;
+  flex-direction: row; /* changed from column to row */
+  flex-wrap: wrap; /* allows the items to wrap to next line */
+  gap: 10px;
+  align-items: center;
+}
+
+form button:not(:last-child) {
+  margin-right: 10px;
 }
 
 .author {
-    color: #007aff;
-    font-weight: bold;
+  color: #0366d6;
+  font-weight: 500; /* Reduce font-weight for sleeker look */
 }
 
 .timestamp {
-    color: #888;
-    font-size: 12px;
+  color: #868e96;
+  font-size: 14px;
 }
 
 .postHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .threadTitle {
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-weight: 500; /* Reduce font-weight */
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .navbar {
@@ -72,7 +105,7 @@ button:hover {
 }
 
 .nav-left {
-  font-weight: bold;
+  font-weight: 500; /* Reduce font-weight */
   font-size: 24px;
 }
 
@@ -102,12 +135,18 @@ body.dark {
   color: blue;
 }
 
+body.dark input, body.dark textarea {
+    background-color: #555;
+    color: blue; /* Or whatever color is appropriate for text in dark mode */
+    border-color: #777;
+}
+
 .navbar.dark {
   background-color: #444;
 }
 
 .thread.dark, .post.dark {
-    background-color: #555;
+    background-color: #555 !important;
 }
 
 .author.dark {
@@ -124,4 +163,16 @@ body.dark {
 
 .mysterious-text.dark:hover {
   color: #7d7d9b;
+}
+
+.threadDetail {
+  background-color: #fff;  /* Default white background */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.threadDetail.dark {
+  background-color: #555;  /* Dark background when in dark mode */
 }

@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import ThreadDetail from './ThreadDetail';
 
-function ThreadList({ isAuthenticated }) {
+function ThreadList({ isAuthenticated, theme }) {
   const [threads, setThreads] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentThreadId, setCurrentThreadId] = useState(null);
-  const backendURL = "http://ec2-3-27-169-155.ap-southeast-2.compute.amazonaws.com:3001";
+  const backendURL = "https://fwr46g69lg.execute-api.ap-southeast-2.amazonaws.com/prod";
 
   const handleThreadClick = (id) => {
     setCurrentThreadId(id);
@@ -14,7 +14,7 @@ function ThreadList({ isAuthenticated }) {
   };
 
   useEffect(() => {
-    fetch(`${backendURL}/threads`)
+    fetch(`${backendURL}/api/threads`)
       .then(response => {
         if (!response.ok) {
           console.log(response)
@@ -33,10 +33,23 @@ function ThreadList({ isAuthenticated }) {
 
   }, []);
 
+  const customModalStyles = {
+    overlay: {
+      backgroundColor: 'rgba(0, 0, 0, 0.75)',  // making overlay slightly dark
+    },
+    content: {
+      background: 'transparent',
+      border: 'none',  // to remove any default borders
+    }
+  };
   return (
     <div>
       {threads.map(thread => (
-        <div key={thread.id} className="thread" onClick={isAuthenticated ? () => handleThreadClick(thread.id) : null}>
+        <div
+          key={thread.id}
+          className={`thread ${theme === 'dark' ? 'dark' : ''}`}
+          onClick={isAuthenticated ? () => handleThreadClick(thread.id) : null}
+        >
           <div className="threadTitle">{thread.title} - <span className="author">{thread.user_id}</span></div>
           <div className="timestamp">{new Date(thread.created_at).toLocaleString()}</div>
         </div>
@@ -46,9 +59,9 @@ function ThreadList({ isAuthenticated }) {
           isOpen={isModalOpen}
           onRequestClose={() => setIsModalOpen(false)}
           contentLabel="Thread Detail"
+          style={customModalStyles}
         >
-          <ThreadDetail id={currentThreadId} />
-          <button onClick={() => setIsModalOpen(false)}>Close</button>
+          <ThreadDetail id={currentThreadId} theme={theme} onClose={() => setIsModalOpen(false)} />
         </Modal>
       )}
     </div>

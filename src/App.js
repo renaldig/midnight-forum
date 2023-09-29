@@ -35,6 +35,7 @@ function AppContent() {
 
   React.useEffect(() => {
     document.body.className = theme;
+    document.documentElement.className = theme; // Add this line
 
     // Check if user is authenticated
     Auth.currentAuthenticatedUser()
@@ -54,7 +55,7 @@ function AppContent() {
       )}
       <Routes>
         {/* Route for homepage */}
-        <Route path="/" element={user ? <ThreadList isAuthenticated={!!user} /> : <ThreadList isAuthenticated={false} />} />
+        <Route path="/" element={user ? <ThreadList isAuthenticated={!!user} theme={theme} /> : <ThreadList isAuthenticated={false} theme={theme} />} />
 
         {/* Route for login */}
         <Route path="/login" element={<SignIn />} />
@@ -63,7 +64,7 @@ function AppContent() {
         <Route path="/signup" element={<SignUp />} />
 
         {/* Route for thread detail (only if authenticated) */}
-        {user && <Route path="/threads/:id" element={<ThreadDetail />} />}
+        {user && <Route path="/threads/:id" element={<ThreadDetail theme={theme} />} />}
 
         {/* Default 404 route */}
         <Route path="*" element={<div>404 Not Found</div>} />

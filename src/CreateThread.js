@@ -1,34 +1,37 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { Auth } from 'aws-amplify';
+import { v4 as uuidv4 } from 'uuid';
 
 function CreateThread() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const backendURL = "http://ec2-3-27-169-155.ap-southeast-2.compute.amazonaws.com:3001";
+  const backendURL = "https://fwr46g69lg.execute-api.ap-southeast-2.amazonaws.com";
 
   const handleSubmit = async () => {
       try {
         const currentUser = await Auth.currentAuthenticatedUser();
         const userId = currentUser.attributes.name;
+        const PK = uuidv4();  // Generate a unique UUID for the new thread
 
-        const response = await fetch(`${backendURL}/threads`, {
+        const response = await fetch("https://fwr46g69lg.execute-api.ap-southeast-2.amazonaws.com/prod/api/threads", {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ title, content, userId })
+          body: JSON.stringify({ PK, title, content, userId }),  // Include the UUID in the request body
         });
 
-        const data = await response.json();
-
-        // Assuming the API will return a successful status on a successful post
-        if (response.status === 200 || response.status === 201) {
-          setIsModalOpen(false);  // Close the modal
-          window.location.reload();  // Refresh the page to reflect the new thread
+        if (response.ok) {
+          // The request was successful
+          const data = await response.json(); // Read the response body as JSON
+          console.log(data);
+          setIsModalOpen(false); // Close the modal
+          window.location.reload(); // Refresh the page to reflect the new thread
         } else {
-          console.error("Error creating thread:", data.message || "Unknown error");
+          // The request failed, log the status code and status text
+          console.error(`Error creating thread: ${response.status} ${response.statusText}`);
         }
 
       } catch (error) {
