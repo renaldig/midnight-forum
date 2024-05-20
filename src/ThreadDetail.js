@@ -8,7 +8,7 @@ function ThreadDetail(props) {
   const [posts, setPosts] = useState([]);
   const [newPostContent, setNewPostContent] = useState('');
   const [currentUser, setCurrentUser] = useState(null);
-  const backendURL = "https://fwr46g69lg.execute-api.ap-southeast-2.amazonaws.com/prod";
+  const backendURL = "<YOUR_BACKEND_LAMBDA_HERE>";
   const id = props.id;
 
   const { theme } = props;
@@ -60,7 +60,6 @@ function ThreadDetail(props) {
     const result = await response.json();
 
     if (result) {
-      // Add the new post to the local posts list to immediately display it
       setPosts([...posts, result]);
       setNewPostContent('');  // Clear the content
     }
@@ -79,7 +78,7 @@ function ThreadDetail(props) {
       });
 
       if (response.ok) {
-        setPosts(posts.filter(post => post.id !== postId)); // Remove the deleted post from the local state
+        setPosts(posts.filter(post => post.id !== postId));
       } else {
         console.error('Failed to delete post');
       }
@@ -107,7 +106,6 @@ function ThreadDetail(props) {
           </div>
         ))}
       </div>
-      {/* Form to add a new post */}
       <form onSubmit={handleNewPostSubmit}>
         <textarea
           value={newPostContent}

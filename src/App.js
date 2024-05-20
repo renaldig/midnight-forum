@@ -10,9 +10,8 @@ import CreateThread from './CreateThread';
 import { ThemeProvider, useTheme } from './ThemeContext';
 import { AuthProvider } from './AuthContext';
 import { useAuth } from './AuthContext';
-import SignIn from './SignIn'; // Import your SignIn component
-import SignUp from './SignUp'; // Import your SignUp component
-// ... other components ...
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 import './index.css'
 
 Amplify.configure(config);
@@ -21,7 +20,7 @@ function App() {
   return (
     <Router>
       <ThemeProvider>
-        <AuthProvider>  {/* Add the AuthProvider here */}
+        <AuthProvider>
           <AppContent />
         </AuthProvider>
       </ThemeProvider>
@@ -35,7 +34,7 @@ function AppContent() {
 
   React.useEffect(() => {
     document.body.className = theme;
-    document.documentElement.className = theme; // Add this line
+    document.documentElement.className = theme;
 
     // Check if user is authenticated
     Auth.currentAuthenticatedUser()
@@ -54,19 +53,10 @@ function AppContent() {
         </nav>
       )}
       <Routes>
-        {/* Route for homepage */}
         <Route path="/" element={user ? <ThreadList isAuthenticated={!!user} theme={theme} /> : <ThreadList isAuthenticated={false} theme={theme} />} />
-
-        {/* Route for login */}
         <Route path="/login" element={<SignIn />} />
-
-        {/* Route for sign up */}
         <Route path="/signup" element={<SignUp />} />
-
-        {/* Route for thread detail (only if authenticated) */}
         {user && <Route path="/threads/:id" element={<ThreadDetail theme={theme} />} />}
-
-        {/* Default 404 route */}
         <Route path="*" element={<div>404 Not Found</div>} />
       </Routes>
     </>

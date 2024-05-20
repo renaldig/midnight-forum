@@ -6,7 +6,7 @@ function ThreadList({ isAuthenticated, theme }) {
   const [threads, setThreads] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentThreadId, setCurrentThreadId] = useState(null);
-  const backendURL = "https://fwr46g69lg.execute-api.ap-southeast-2.amazonaws.com/prod";
+  const backendURL = "<YOUR_BACKEND_LAMBDA_HERE>";
 
   const handleThreadClick = (id) => {
     setCurrentThreadId(id);
@@ -35,11 +35,11 @@ function ThreadList({ isAuthenticated, theme }) {
 
   const customModalStyles = {
     overlay: {
-      backgroundColor: 'rgba(0, 0, 0, 0.75)',  // making overlay slightly dark
+      backgroundColor: 'rgba(0, 0, 0, 0.75)',
     },
     content: {
       background: 'transparent',
-      border: 'none',  // to remove any default borders
+      border: 'none', 
     }
   };
   return (

@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { Auth } from 'aws-amplify';
-import { useAuth } from './AuthContext';  // Import the useAuth hook
+import { useAuth } from './AuthContext';
 
 function SignIn() {
     const [formData, setFormData] = useState({email: '', password: ''});
-    const { setUser } = useAuth();  // Get the setUser function from the context
+    const { setUser } = useAuth();
 
     const signIn = async () => {
         try {
             const user = await Auth.signIn(formData.email, formData.password);
             console.log(user);
-            setUser(user);  // Update the user in the context after a successful sign-in
+            setUser(user);
 
-            // Redirect to root and cause a full page refresh
             window.location.href = "/";
         } catch (error) {
             console.log('error signing in', error);

@@ -1,4 +1,3 @@
-// AuthContext.js
 import React from 'react';
 import { Auth } from 'aws-amplify';
 
@@ -18,7 +17,7 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       await Auth.signOut();
-      setUser(null); // Clear the user state upon successful sign-out
+      setUser(null);
     } catch (error) {
       console.error('Error signing out: ', error);
     }

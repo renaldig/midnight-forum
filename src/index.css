@@ -2,7 +2,7 @@ body {
   font-family: 'Avenir', 'Helvetica Neue', sans-serif;
   background-color: #f2f2f2;
   color: #333;
-  margin: 20px; /* Added margin to body */
+  margin: 20px;
   padding: 0;
   transition: background-color 0.3s;
 }
@@ -10,13 +10,13 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px; /* Increased padding for more space */
+  padding: 40px;
 }
 
 input, textarea {
   padding: 12px;
   margin: 10px 0;
-  border: 0.5px solid #e1e4e8; /* Finer border */
+  border: 0.5px solid #e1e4e8;
   border-radius: 8px;
   background-color: white;
   width: 100%;
@@ -38,7 +38,7 @@ button {
   padding: 10px 20px;
   font-size: 14px;
   transition: background-color 0.2s, transform 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
@@ -62,8 +62,8 @@ button:hover {
 
 form {
   display: flex;
-  flex-direction: row; /* changed from column to row */
-  flex-wrap: wrap; /* allows the items to wrap to next line */
+  flex-direction: row; 
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
 }
@@ -74,7 +74,7 @@ form button:not(:last-child) {
 
 .author {
   color: #0366d6;
-  font-weight: 500; /* Reduce font-weight for sleeker look */
+  font-weight: 500;
 }
 
 .timestamp {
@@ -90,7 +90,7 @@ form button:not(:last-child) {
 }
 
 .threadTitle {
-  font-weight: 500; /* Reduce font-weight */
+  font-weight: 500;
   font-size: 20px;
   margin-bottom: 10px;
 }
@@ -105,7 +105,7 @@ form button:not(:last-child) {
 }
 
 .nav-left {
-  font-weight: 500; /* Reduce font-weight */
+  font-weight: 500;
   font-size: 24px;
 }
 
@@ -118,16 +118,16 @@ form button:not(:last-child) {
 }
 
 .mysterious-text {
-  color: #5c5c8a;  /* A deep bluish-purple shade */
+  color: #5c5c8a;
   font-weight: bold;
   font-style: italic;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-  text-decoration: none;  /* Removes underline from the link */
-  transition: color 0.3s ease;  /* Smooth transition for hover effect */
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .mysterious-text:hover {
-  color: #3c3c5a;  /* A slightly darker shade for hover */
+  color: #3c3c5a;
 }
 
 body.dark {
@@ -137,7 +137,7 @@ body.dark {
 
 body.dark input, body.dark textarea {
     background-color: #555;
-    color: blue; /* Or whatever color is appropriate for text in dark mode */
+    color: blue; 
     border-color: #777;
 }
 
@@ -150,7 +150,7 @@ body.dark input, body.dark textarea {
 }
 
 .author.dark {
-    color: #add8e6;  /* A light blue color for better visibility in dark mode */
+    color: #add8e6; 
 }
 
 .timestamp.dark {
@@ -166,7 +166,7 @@ body.dark input, body.dark textarea {
 }
 
 .threadDetail {
-  background-color: #fff;  /* Default white background */
+  background-color: #fff;
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -174,5 +174,5 @@ body.dark input, body.dark textarea {
 }
 
 .threadDetail.dark {
-  background-color: #555;  /* Dark background when in dark mode */
+  background-color: #555;
 }
