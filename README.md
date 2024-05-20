@@ -76,7 +76,7 @@ We welcome contributions from the community. To contribute, please follow these 
 2. Create a new branch for your feature or bugfix.
 3. Commit your changes.
 4. Push your branch to your fork.
-5/ Open a pull request.
+5. Open a pull request.
 6. Please ensure your code adheres to the project's coding standards and passes all tests.
 
 ## License
