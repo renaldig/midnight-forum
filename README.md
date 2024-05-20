@@ -9,7 +9,6 @@ Welcome to the `midnight-forum` frontend repository. This project is built using
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
-- [Project Structure](#project-structure)
 - [Available Scripts](#available-scripts)
 - [Contributing](#contributing)
 - [License](#license)
